@@ -1,19 +1,34 @@
 //NUM BUTTONS
 document.addEventListener("keypress", (e) => {
-    onKeyPress(e.keyCode);
+    onKeyPress(e);
 
 })
 
 function onKeyPress(key) {
-    if(key >= 65 || key <= 90) {
-        console.log("good")
+    const keyCode = key.keyCode;
+    console.log(keyCode)
+    //to filter the not needed keys
+    //THIS IS FOR LOWER AND UPPTERCASE LTTERS (key >= 65 && key <=90) || (key >= 97 && key <= 122))
+    if(keyCode >= 48 && keyCode <= 57) {
+        onNumPress(key);
+    } else if(keyCode >= 106 && keyCode <= 111){
+        console.log("mathop")
+        onMathPress(key);
     }
 }
 
+function onNumPress(key) {
+    const inputScreen = document.querySelector(".calc-inputs > p");
+    inputScreen.innerHTML += key.key
+}
 
-//backspace             8
-//period                190
-// forward slash (/)    191
-//arithmetic operators 106 - 111
-//letters
-//      lowercase       65-90
+function onMathPress(key) {
+    console.log("mayat mathpressss")
+    const chars = "/*-+.";
+    const invalidChars = chars.split("");
+    console.log(invalidChars)
+    if(inputScreen.innerHML != "") {
+
+    }
+}
+
