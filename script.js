@@ -5,6 +5,7 @@ document.addEventListener("keypress", (e) => {
 })
 
 function onKeyPress(key) {
+
     const keyCode = key.keyCode;
     console.log(keyCode)
     //to filter the not needed keys
@@ -12,6 +13,7 @@ function onKeyPress(key) {
     if(keyCode >= 48 && keyCode <= 57) {
         onNumPress(key);
     } else if(keyCode >= 106 && keyCode <= 111){
+        //ON HERE WRONG CODES FOR THE MATH OPERATORS
         console.log("mathop")
         onMathPress(key);
     }
