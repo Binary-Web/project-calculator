@@ -91,14 +91,14 @@ body {
 
 
 .calc-inputs {
+    height: 100%;
     font-size: x-large;
     padding: 1rem 0.5rem;
 }
-
-.calc-result {
-    font-size: xx-large;
-    padding: 1rem 0.5rem;
+.calc-inputs > p {
+    height: 1.5rem;
 }
+
 
 .calc-screen > * {
     text-align: right;
