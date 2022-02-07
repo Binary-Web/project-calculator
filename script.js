@@ -13,7 +13,6 @@ document.addEventListener("keypress", (e) => {
 function onKeyPress(key) {
     const keyCode = key.keyCode;
     //to filter the not needed keys
-    //THIS IS FOR LOWER AND UPPTERCASE LTTERS (key >= 65 && key <=90) || (key >= 97 && key <= 122))
     if(keyCode >= 48 && keyCode <= 57) {
         //console.log(nextNum)
         if(nextNum) {
@@ -25,11 +24,13 @@ function onKeyPress(key) {
     } else if((keyCode >= 42 && keyCode <= 47) && keyCode != 44){
         //ON PRESS OF MATH OPERATORS
         if(key.key === "+") {
-            const tempNum = parseInt(inputScreen.innerHTML);
-            num = num + tempNum;
-            console.log(`NUM: ${num}     tempnum: ${tempNum}`)
-            //console.log(typeof parseInt(inputScreen.innerHTML));
-            //console.log(num)
+            num += parseInt(inputScreen.innerHTML)
+            inputScreen.innerHTML=num
+            nextNum = true;
+        } else if(key.key === "-") {
+            //this part here is not yet working
+            num -= parseInt(inputScreen.innerHTML)
+            inputScreen.innerHTML=num
             nextNum = true;
         }
 
