@@ -15,58 +15,51 @@
 <body>
     <div class="container">
         <div class="calculator">
-            <div class="calc-screen">
-                <div class="calc-inputs">
-                    <p></p>
-                </div>
-            </div>
-            <div class="calc-buttons-container">
-                <div class="btn-controls">
-                    <div class="btn-clear">
-                        CLEAR
-                    </div>
-                    <div class="btn-delete">
-                        DELETE
-                    </div>
-                </div>
-                <div class="btn-main">
-                    <div class="calc-btn btn-7">7</div>
-                    <div class="calc-btn btn-8">8</div>
-                    <div class="calc-btn btn-9">9</div>
-                    <div class="calc-btn btn-division"><i class="fas fa-divide"></i></div>
-                    <div class="calc-btn btn-4">4</div>
-                    <div class="calc-btn btn-5">5</div>
-                    <div class="calc-btn btn-6">6</div>
-                    <div class="calc-btn btn-times"><i class="fas fa-times"></i></div>
-                    <div class="calc-btn btn-3">3</div>
-                    <div class="calc-btn btn-2">2</div>
-                    <div class="calc-btn btn-1">1</div>
-                    <div class="calc-btn btn-minus"><i class="fas fa-minus"></i></div>
-                    <div class="calc-btn btn-decimal">.</div>
-                    <div class="calc-btn btn-0">0</div>
-                    <div class="calc-btn btn-equals"><i class="fas fa-equals"></i></div>
-                    <div class="calc-btn btn-plus"><i class="fas fa-plus"></i></div>
-                </div>
+            <div class="calc-display">0</div>
+            <div class="calc-btn">
+                <button class="btn-operator" data-action="add">+</button>
+                <button class="btn-operator" data-action="subtract">-</button>
+                <button class="btn-operator" data-action="multiply">&times;</button>
+                <button class="btn-operator" data-action="divide">÷</button>
+                <button class="btn-num">7</button>
+                <button class="btn-num">8</button>
+                <button class="btn-num">9</button>
+                <button class="btn-num">4</button>
+                <button class="btn-num">5</button>
+                <button class="btn-num">6</button>
+                <button class="btn-num">1</button>
+                <button class="btn-num">2</button>
+                <button class="btn-num">3</button>
+                <button class="btn-num">0</button>
+                <button class="btn-dot" data-action="decimal">.</button>
+                <button class="btn-clear" data-action="clear">AC</button>
+                <button class="btn-equal"></button>
+                <button class="btn-equal" data-action="calculate">=</button>
             </div>
 
         </div>
+
     </div>
 </body>
 </html>
 
-<!-- 
 
-7 8 9 ÷
-4 5 6 x
-1 2 3 -
-. 0 = +
-
-
-num = 0
-
-if pressed math op
-pressed + then num + innerhtml
-pressed - then num - innerhtml
-
-
- -->
+<!--             <div class=”calculator-btn”>
+                <button class="btn-operator" data-action="add"><i class="fas fa-plus"></i></button>
+                <button class="btn-operator" data-action="subtract"><i class="fa-solid fa-minus"></i></button>
+                <button class="btn-operator" data-action="multiply"><i class="fa-solid fa-xmark"></i></button>
+                <button class="btn-operator" data-action="divide"><i class="fa-solid fa-divide"></i></button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>0</button>
+                <button data-action="decimal">.</button>
+                <button data-action="clear">AC</button>
+                <button class="key--equal" data-action="calculate">=</button>
+            </div> -->

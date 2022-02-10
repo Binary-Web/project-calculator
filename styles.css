@@ -2,18 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border-radius: 0.5rem;
     font-family: 'JetBrains Mono', monospace;
 
     font-family: 'Roboto', sans-serif;
 }
+
 body {
-    background-color: #96939B;
+    background-color: saddlebrown;
 }
 
-.calculator, .calc-screen, .btn-controls > *, .calc-btn {
-    border: 3px solid #000000;
-}
 .container {
     height: 100vh;
     width: 100vw;
@@ -21,85 +18,41 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .calculator {
-    width: 30rem;
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #E8E8E8;
+    border-radius: 1rem;
+    overflow: hidden;
 }
-.calc-screen {
-    width: 100%;
-    display: grid;
-}
-
-.btn-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.btn-controls > * {
-    padding: 1.5rem 1rem;
-    width: 100%;
-    margin: 0.5rem 0;
-}
-
-.btn-controls > *:first-child {
-    margin-right: 0.25rem;
-}
-
-.btn-controls > *:last-child {
-    margin-left: 0.25rem;
-}
-
-.btn-main {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 0.5rem;
-}
-
-.calc-btn {
-    padding: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background-color: #BFBFBF;
-}
-
-.calc-btn:hover {
-    background-color: #a5a5a5;
-}
-
-.btn-clear {
-    background-color: #454545;
-    color: #ffffff;
-}
-
-.btn-delete {
-    background-color: #ff0000;
-    color: #ffffff;
-}
-
-.btn-controls * {
-    cursor: pointer;
-}
-
-.btn-controls > *:hover {
-    opacity: 0.7;
-}
-
-
-.calc-inputs {
-    height: 100%;
-    font-size: x-large;
-    padding: 1rem 0.5rem;
-}
-.calc-inputs > p {
-    height: 1.5rem;
-}
-
-
-.calc-screen > * {
+.calc-display {
+    background-color: #000000;
+    color: #fff;
     text-align: right;
+    padding: 2rem 1rem;
+    font-size: xxx-large;
 }
+.calc-btn {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+}
+
+.calc-btn > * {
+    font-size: x-large;
+}
+
+.btn-equal {
+    grid-row: 2 / span 4;
+    grid-column: 4;
+    background-color: #da7134;
+}
+
+.btn-equal:hover {
+    background-color: #cf6b31;
+}
+
+button {
+    padding: 1.5rem 2rem;
+    width: 7rem;
+    border: 1px solid #5c5c5c;
+    outline: none;
+}
+
