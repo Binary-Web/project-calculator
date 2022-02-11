@@ -68,6 +68,6 @@ button {
     background-color: #b1b1b1;
 }
 
-.btn-operator:active {
+.btn-operator:active , .is-pressed{
     background-color: #929292;;
 }

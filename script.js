@@ -1,24 +1,55 @@
 const calculator = document.querySelector('.calculator');
 const buttons = document.querySelector('.calc-btn');
+const display = document.querySelector('.calc-display');
 
 buttons.addEventListener('click', e => {
-    const key = e.target;
-    const action = key.dataset.action;
-    if(!action) {
-        console.log("num!");
-    } else if (
-                action === "add" ||
-                action === "subtract" ||
-                action === "multiply" ||
-                action === "divide"
-    ) {
-        console.log("operator key");
-    } else if (action === "decimal") {
-        console.log("decimal key");
-    } else if (action === "calculate") {
-        console.log("calculate key")
-    } else if (action === "clear") {
-        console.log("clear key")
+    if(e.target.matches('button')) {
+        const key = e.target;
+        const action = key.dataset.action;
+        const keyContent = key.textContent;
+        const displayedNum = display.textContent;
+        const prevBtnType = calculator.dataset.prevBtnType;
+        document.querySelectorAll('.btn-operator').forEach(element => {
+            element.classList.remove('is-pressed');
+        })
+        if(!action) {
+            if(displayedNum === '0' || prevBtnType === "operator") {
+                calculator.dataset.prevBtnType = "num";
+                display.textContent = keyContent;
+            } else {
+                display.textContent = displayedNum + key.textContent;
+            }
+        } else if (
+                    action === "add" ||
+                    action === "subtract" ||
+                    action === "multiply" ||
+                    action === "divide"
+        ) {
+            calculator.dataset.firstNum = displayedNum;
+            calculator.dataset.operator = action;
+            key.classList.add('is-pressed');
+            calculator.dataset.prevBtnType = "operator";
+        } else if (action === "decimal") {
+            console.log("decimal key");
+        } else if (action === "calculate") {
+            const num1 = calculator.dataset.firstNum;
+            const operator = calculator.dataset.operator;
+            const num2 = displayedNum;
+            
+            display.textContent = getResult(num1, num2, operator);
+
+        } else if (action === "clear") {
+            console.log("clear key");
+        }
     }
     
 })
+
+function getResult(num1, num2, operator) {
+    switch(operator) {
+        case "add":         return parseFloat(num1) + parseFloat(num2);
+        case "subtract":    return parseFloat(num1) - parseFloat(num2);
+        case "multiply":    return parseFloat(num1) * parseFloat(num2);
+        case "divide":      return parseFloat(num1) / parseFloat(num2);
+    }
+}
