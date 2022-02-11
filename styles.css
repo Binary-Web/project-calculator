@@ -42,11 +42,15 @@ body {
 .btn-equal {
     grid-row: 2 / span 4;
     grid-column: 4;
-    background-color: #da7134;
+    background-color: #da7338;
 }
 
 .btn-equal:hover {
-    background-color: #cf6b31;
+    background-color: #d45d18;
+}
+
+.btn-equal:active {
+    background-color: #c45515;;
 }
 
 button {
@@ -56,3 +60,14 @@ button {
     outline: none;
 }
 
+.btn-operator {
+    background-color: #d4d4d4;
+}
+
+.btn-operator:hover {
+    background-color: #b1b1b1;
+}
+
+.btn-operator:active {
+    background-color: #929292;;
+}
