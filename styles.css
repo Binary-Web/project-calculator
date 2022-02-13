@@ -1,73 +1,82 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
 
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    background-color: saddlebrown;
+  background-color: saddlebrown;
 }
 
 .container {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .calculator {
-    border-radius: 1rem;
-    overflow: hidden;
+  border-radius: 1rem;
+  overflow: hidden;
 }
 .calc-display {
-    background-color: #000000;
-    color: #fff;
-    text-align: right;
-    padding: 2rem 1rem;
-    font-size: xxx-large;
+  background-color: #000000;
+  color: #fff;
+  text-align: right;
+  padding: 2rem 1rem;
+  font-size: xxx-large;
 }
 .calc-btn {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
+  display: grid;
+  grid-template-columns: repeat(4, auto);
 }
 
 .calc-btn > * {
-    font-size: x-large;
+  font-size: x-large;
 }
 
 .btn-equal {
-    grid-row: 2 / span 4;
-    grid-column: 4;
-    background-color: #da7338;
-}
-
-.btn-equal:hover {
-    background-color: #d45d18;
-}
-
-.btn-equal:active {
-    background-color: #c45515;;
+  grid-row: 2 / span 4;
+  grid-column: 4;
+  background-color: #da7338;
 }
 
 button {
-    padding: 1.5rem 2rem;
-    width: 7rem;
-    border: 1px solid #5c5c5c;
-    outline: none;
+  padding: 1.5rem 2rem;
+  width: 7rem;
+  border: 1px solid #5c5c5c;
+  outline: none;
+  cursor: pointer;
 }
 
+button:hover {
+  background-color: #e4e4e4;
+}
+
+button:active {
+  background-color: #b6b6b6;
+}
+
+.btn-equal:hover {
+  background-color: #d45d18;
+}
+
+.btn-equal:active {
+  background-color: #c45515;
+}
 .btn-operator {
-    background-color: #d4d4d4;
+  background-color: #d4d4d4;
 }
 
 .btn-operator:hover {
-    background-color: #b1b1b1;
+  background-color: #b1b1b1;
 }
 
-.btn-operator:active , .is-pressed{
-    background-color: #929292;;
+.btn-operator:active,
+.is-pressed {
+  background-color: #929292;
 }
