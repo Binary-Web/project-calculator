@@ -30,7 +30,9 @@ buttons.addEventListener('click', e => {
             key.classList.add('is-pressed');
             calculator.dataset.prevBtnType = "operator";
         } else if (action === "decimal") {
-            console.log("decimal key");
+            if(!displayedNum.includes('.')) {
+                display.textContent = displayedNum + "."
+            }
         } else if (action === "calculate") {
             const num1 = calculator.dataset.firstNum;
             const operator = calculator.dataset.operator;
