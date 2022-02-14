@@ -54,7 +54,6 @@ buttons.addEventListener('click', e => {
             display.textContent = "0";
             calculator.dataset.firstNum = "0";
             calculator.dataset.operator = null;
-            
         }
     }
     
