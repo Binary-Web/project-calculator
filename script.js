@@ -19,20 +19,29 @@ buttons.addEventListener('click', e => {
             } else {
                 display.textContent = displayedNum + key.textContent;
             }
+            calculator.dataset.prevBtnType = "number"
         } else if (
                     action === "add" ||
                     action === "subtract" ||
                     action === "multiply" ||
                     action === "divide"
         ) {
-            calculator.dataset.firstNum = displayedNum;
-            calculator.dataset.operator = action;
-            key.classList.add('is-pressed');
-            calculator.dataset.prevBtnType = "operator";
-        } else if (action === "decimal") {
-            if(!displayedNum.includes('.')) {
-                display.textContent = displayedNum + "."
+            if(prevBtnType != "operator") {
+
+                calculator.dataset.firstNum = displayedNum;
+                calculator.dataset.operator = action;
+                key.classList.add('is-pressed');
+                calculator.dataset.prevBtnType = "operator";
+            } else {
+                calculator.dataset.operator = action;
             }
+        } else if (action === "decimal") {
+            if(!displayedNum.includes('.')){
+                display.textContent = displayedNum + ".";
+            } else if (prevBtnType === "operator") {
+                display.textContent = "0."
+            }
+            calculator.dataset.prevBtnType = "decimal"
         } else if (action === "calculate") {
             const num1 = calculator.dataset.firstNum;
             const operator = calculator.dataset.operator;
@@ -40,8 +49,12 @@ buttons.addEventListener('click', e => {
             
             display.textContent = getResult(num1, num2, operator);
 
+            calculator.dataset.prevBtnType = "calculate"
         } else if (action === "clear") {
-            console.log("clear key");
+            display.textContent = "0";
+            calculator.dataset.firstNum = "0";
+            calculator.dataset.operator = null;
+            
         }
     }
     
