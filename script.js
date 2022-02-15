@@ -13,6 +13,7 @@ buttons.addEventListener('click', e => {
             element.classList.remove('is-pressed');
         })
         if(!action) {
+            //IF A NUMBER IS PRESSED
             if(displayedNum === '0' || prevBtnType === "operator") {
                 calculator.dataset.prevBtnType = "num";
                 display.textContent = keyContent;
@@ -26,16 +27,30 @@ buttons.addEventListener('click', e => {
                     action === "multiply" ||
                     action === "divide"
         ) {
-            if(prevBtnType != "operator") {
+            //IF AN OPERATOR IS PRESSED
+            const num1 = calculator.dataset.firstNum;
+            const operator = calculator.dataset.operator;
+            const num2 = displayedNum;
+            console.log(prevBtnType)
+            if(num1 && operator && prevBtnType != "operator") {
+                const result = getResult(num1, num2, operator);
+                console.log(result)
+                display.textContent = result;
 
-                calculator.dataset.firstNum = displayedNum;
-                calculator.dataset.operator = action;
-                key.classList.add('is-pressed');
-                calculator.dataset.prevBtnType = "operator";
+
+                calculator.dataset.firstNum = result;
+
             } else {
-                calculator.dataset.operator = action;
+                calculator.dataset.firstNum = displayedNum;
             }
+
+
+            key.classList.add('is-pressed');
+            calculator.dataset.prevBtnType = "operator";
+            calculator.dataset.operator = action;
+
         } else if (action === "decimal") {
+            //IF DECIMAL POINT IS PRESSED
             if(!displayedNum.includes('.')){
                 display.textContent = displayedNum + ".";
             } else if (prevBtnType === "operator") {
@@ -43,17 +58,20 @@ buttons.addEventListener('click', e => {
             }
             calculator.dataset.prevBtnType = "decimal"
         } else if (action === "calculate") {
+            //IF EQUALS IS PRESSED
             const num1 = calculator.dataset.firstNum;
             const operator = calculator.dataset.operator;
             const num2 = displayedNum;
-            
+
             display.textContent = getResult(num1, num2, operator);
 
             calculator.dataset.prevBtnType = "calculate"
         } else if (action === "clear") {
+            //IF AC IS PRESSED
             display.textContent = "0";
             calculator.dataset.firstNum = "0";
-            calculator.dataset.operator = null;
+            calculator.dataset.operator = "";
+            calculator.dataset.prevBtnType = "clear"
         }
     }
     
