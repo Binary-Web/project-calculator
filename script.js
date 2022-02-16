@@ -7,7 +7,7 @@ buttons.addEventListener('click', e => {
         const key = e.target;
         const action = key.dataset.action;
         const keyContent = key.textContent;
-        const displayedNum = display.textContent;
+        let displayedNum = display.textContent;
         const prevBtnType = calculator.dataset.prevBtnType;
         document.querySelectorAll('.btn-operator').forEach(element => {
             element.classList.remove('is-pressed');
@@ -31,10 +31,9 @@ buttons.addEventListener('click', e => {
             const num1 = calculator.dataset.firstNum;
             const operator = calculator.dataset.operator;
             const num2 = displayedNum;
-            console.log(prevBtnType)
-            if(num1 && operator && prevBtnType != "operator") {
+            if(num1 && operator && prevBtnType !== "operator" && prevBtnType !== "calculate") {
+                console.log(`prevBtnType ${prevBtnType}`)
                 const result = getResult(num1, num2, operator);
-                console.log(result)
                 display.textContent = result;
 
 
@@ -53,25 +52,35 @@ buttons.addEventListener('click', e => {
             //IF DECIMAL POINT IS PRESSED
             if(!displayedNum.includes('.')){
                 display.textContent = displayedNum + ".";
-            } else if (prevBtnType === "operator") {
+            } else if (prevBtnType === "operator" || prevBtnType === "calculate") {
                 display.textContent = "0."
             }
             calculator.dataset.prevBtnType = "decimal"
         } else if (action === "calculate") {
             //IF EQUALS IS PRESSED
-            const num1 = calculator.dataset.firstNum;
+            let num1 = calculator.dataset.firstNum;
             const operator = calculator.dataset.operator;
-            const num2 = displayedNum;
+            let num2 = displayedNum;
 
-            display.textContent = getResult(num1, num2, operator);
+            if(num1) {
+                if(prevBtnType === 'calculate') {
+                    num1 = displayedNum;
+                    num2 = calculator.dataset.modValue;
 
+                }
+                display.textContent = getResult(num1, num2, operator);
+
+            }
+
+            calculator.dataset.modValue = num2;
             calculator.dataset.prevBtnType = "calculate"
         } else if (action === "clear") {
             //IF AC IS PRESSED
             display.textContent = "0";
             calculator.dataset.firstNum = "0";
             calculator.dataset.operator = "";
-            calculator.dataset.prevBtnType = "clear"
+            calculator.dataset.prevBtnType = "clear";
+            displayedNum = "0"
         }
     }
     
