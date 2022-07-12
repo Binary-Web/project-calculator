@@ -13,15 +13,19 @@ buttons.addEventListener('click', e => {
             element.classList.remove('is-pressed');
         })
         if(!action) {
-            if(display.textContent.length < 15) {
+            if(display.textContent.length > 14) {
+                display.style.fontSize = '2.4rem';
+            } else {
+                display.style.fontSize = '3rem';
                 if(displayedNum === '0' || prevBtnType === "operator") {
                     calculator.dataset.prevBtnType = "num";
                     display.textContent = keyContent;
                 } else {
                     display.textContent = displayedNum + key.textContent;
                 }
-
             }
+
+
         } else if (
                     action === "add" ||
                     action === "subtract" ||
@@ -41,9 +45,13 @@ buttons.addEventListener('click', e => {
             const operator = calculator.dataset.operator;
             const num2 = displayedNum;
             
-            display.textContent = getResult(num1, num2, operator);
+            if(operator) {
+
+                display.textContent = getResult(num1, num2, operator);
+            }
 
         } else if (action === "clear") {
+            display.style.fontSize = 'xxx-large'
             display.textContent = 0;
         }
     }
