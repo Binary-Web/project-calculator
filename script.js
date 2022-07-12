@@ -13,11 +13,14 @@ buttons.addEventListener('click', e => {
             element.classList.remove('is-pressed');
         })
         if(!action) {
-            if(displayedNum === '0' || prevBtnType === "operator") {
-                calculator.dataset.prevBtnType = "num";
-                display.textContent = keyContent;
-            } else {
-                display.textContent = displayedNum + key.textContent;
+            if(display.textContent.length < 15) {
+                if(displayedNum === '0' || prevBtnType === "operator") {
+                    calculator.dataset.prevBtnType = "num";
+                    display.textContent = keyContent;
+                } else {
+                    display.textContent = displayedNum + key.textContent;
+                }
+
             }
         } else if (
                     action === "add" ||
@@ -41,7 +44,7 @@ buttons.addEventListener('click', e => {
             display.textContent = getResult(num1, num2, operator);
 
         } else if (action === "clear") {
-            console.log("clear key");
+            display.textContent = 0;
         }
     }
     
