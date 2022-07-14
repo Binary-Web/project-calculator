@@ -13,7 +13,7 @@ buttons.addEventListener('click', e => {
             element.classList.remove('is-pressed');
         })
         if(!action) {
-            if(display.textContent.length > 14) {
+            if(display.textContent.length > 14 )  {
                 display.style.fontSize = '2.4rem';
             } else {
                 display.style.fontSize = '3rem';
@@ -51,7 +51,8 @@ buttons.addEventListener('click', e => {
             }
 
         } else if (action === "clear") {
-            display.style.fontSize = 'xxx-large'
+            display.style.fontSize = 'xxx-large';
+
             display.textContent = 0;
         }
     }

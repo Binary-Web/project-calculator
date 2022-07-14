@@ -27,8 +27,13 @@ body {
   background-color: #000000;
   color: #fff;
   text-align: right;
-  padding: 2rem 1rem;
-  font-size: xxx-large;
+  height: 8rem;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 1rem;
+  font-size: 3rem;
 }
 .calc-btn {
   display: grid;
